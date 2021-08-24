@@ -102,6 +102,7 @@ function cancel() {
   
 }
 
+
   
 
 
@@ -127,41 +128,77 @@ function cancel() {
 
    const xmlhttp = new XMLHttpRequest();
    xmlhttp.onload = function() {
-  const myArr = JSON.parse(this.responseText);
+  var myArr = JSON.parse(this.responseText);
 
 
   for (let I = 0; I < myArr.length; I++) {
-    const container = document.getElementById('Jasondata');
-   
+    var container = document.getElementById('Jasondata');
+    var container2 = document.getElementById('Jasondata2');
+   if (I < 5) {
+    var content = `
+    <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
+    <div class="card" >
+      <div class="check">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        </div>
+      </div>
+      <img class="card-img-top" src="${myArr[I].image}" alt="top-image">
+      <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
+          <path
+            d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
+        </svg>
+      </div>
+      <div class="card-body">
+        <h6>${myArr[I].name}</h6>
+        <p>${myArr[I].description}</p>
+      </div>
+
+
+    </div>
+  </div>
+    `;
+
+  
+    // Append newyly created card element to the container
+    container.innerHTML += content;
+   } 
+
+   else {
+
+    var content = `
+    
+    <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
+    <div class="card" >
+      <div class="check">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        </div>
+      </div>
+      <img class="card-img-top" src="${myArr[I].image}" alt="top-image">
+      <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
+          <path
+            d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
+        </svg>
+      </div>
+      <div class="card-body">
+        <h6>${myArr[I].name}</h6>
+        <p>${myArr[I].description}</p>
+      </div>
+
+
+    </div>
+  </div>
+    `;
+
+  
+    // Append newyly created card element to the container
+    container2.innerHTML += content;
+   }
      // Construct card content
-     const content = `
-     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
-     <div class="card" >
-       <div class="check">
-         <div class="form-check">
-           <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-         </div>
-       </div>
-       <img class="card-img-top" src="${myArr[I].image}" alt="top-image">
-       <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
-         <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
-           <path
-             d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
-         </svg>
-       </div>
-       <div class="card-body">
-         <h6>${myArr[I].name}</h6>
-         <p>${myArr[I].description}</p>
-       </div>
-
-
-     </div>
-   </div>
-     `;
-
-   
-     // Append newyly created card element to the container
-     container.innerHTML += content;
+    
 
     
   }
@@ -170,7 +207,7 @@ function cancel() {
   xmlhttp.send();
  
    
- 
+ localStorage.setItem("name","harry")
 
  
   
