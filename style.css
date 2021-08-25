@@ -476,7 +476,7 @@ form .button3{
   color: #252584;
 }
 .modal-body .user-img{
-  padding: 27px;
+  padding: 30px;
   background-color: #dcf0ff;
   border-radius: 50%;
   display: flex;
@@ -484,6 +484,25 @@ form .button3{
   align-items: center;
   width: 100px;
 
+}
+.modal-body .user-img .pen input {
+  display: none;
+
+}
+.modal-body .user-img .pen  label {
+      margin-bottom: 0;
+      border: none;
+}
+.pen #file-input
+{
+    display: none;
+}
+
+
+.image-upload svg
+{
+    width: 80px;
+    cursor: pointer;
 }
 .modal-body .data{
   display: flex;

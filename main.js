@@ -41,33 +41,7 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-// function Mutliply(x,y) {
-//   return x * y;
-// }
-// console.log(Mutliply(5,5));
-// Mutliply.version="1.2.0";
-// console.log(Mutliply);
 
-// function makemultiplier(multiplier) {
-//   var myfunction=function (x) {
-//     return multiplier * x;
-//   }
-//   return myfunction;
-// }
-// var multiply3=makemultiplier(3);
-// console.log(multiply3(10));
-
-// var a=9;
-// var b=a;
-// b=10;
-// console.log(b);
-
-// var xyz={x:7};
-// var w=xyz;
-// xyz={x:9};
-// console.log(w);
-
-// console.log(xyz)
 
 
 function Edit() {
@@ -107,33 +81,19 @@ function cancel() {
 
 
     
-// //   const xmlhttp = new XMLHttpRequest();
-// //   xmlhttp.onload = function() {
-// //   const myArr = JSON.parse(this.responseText);
-// //   console.log(myArr);
-// //   var heading=document.querySelectorAll("#card1name");
-// //   var post=document.querySelectorAll("#details");
- 
-// //   for (let i = 0;  i< heading.length; i++){
-// //    heading[i].innerHTML=myArr[i].name;
-// //    post[i].innerHTML=myArr[i].description;
-// // }
 
-// //   }
-
-//    xmlhttp.open("GET", "data.json", true);
-//    xmlhttp.send();
   
 
 
    const xmlhttp = new XMLHttpRequest();
    xmlhttp.onload = function() {
+  
   var myArr = JSON.parse(this.responseText);
-
 
   for (let I = 0; I < myArr.length; I++) {
     var container = document.getElementById('Jasondata');
     var container2 = document.getElementById('Jasondata2');
+
    if (I < 5) {
     var content = `
     <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
@@ -207,8 +167,30 @@ function cancel() {
   xmlhttp.send();
  
    
- localStorage.setItem("name","harry")
+function save(params) {
+  var name = document.getElementById("name").value;
+  var position = document.getElementById("position").value;
+  var description = document.getElementById("description").value; 
 
- 
-  
+
+  console.log(name)
+  console.log(position)
+  console.log(description)
+
+}
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+     
+      reader.onload = function(e) {
+          document.getElementById('imagePreview');
+          document.getElementById('imagePreview').hide();
+      }
+      
+      reader.readAsDataURL(input.files[0]);
+  }
+document.getElementById("imagepreview").onchange(function name(params) {
+  console.log(readURL(this));
+})
+}
 
