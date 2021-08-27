@@ -69,9 +69,13 @@ function cancel() {
     container2[i].checked = false;
     container[i].style.display="none";
   }
-
-
-  
+}
+function preview(value) {
+  document.getElementById('imagePreview').src = window.URL.createObjectURL(value.files[0]);
+  document.getElementById('imagePreview').style.width="100%";
+  document.getElementById('imagePreview').style.height="100%";
+  document.getElementById("img").style.padding="0px";
+  document.getElementById("hi").style.display="none"
 }
 
 
@@ -83,58 +87,44 @@ function cancel() {
   
 
 
-   const xmlhttp = new XMLHttpRequest();
-   xmlhttp.onload = function() {
-  
-  var myArr = JSON.parse(this.responseText);
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+let myArr = JSON.parse(this.responseText);
+   
+var formadd=document.querySelector(".form-add")
+formadd.addEventListener('submit' , (e) => {
+      e.preventDefault();
+      var name = document.getElementById('name').value;
+      var postion = document.getElementById('position').value;
+      var description = document.getElementById('description').value;
+      var pic=document.getElementById("imagePreview").src;
+      let sendData={
+        "id":8,
+        "image":pic,
+        "name":name,
+        "position":postion,
+        "description":description
+      }
 
-  for (let I = 0; I < myArr.length; I++) {
+      console.log(sendData)
+      console.log(myArr.push(sendData));
+    
+    })
+   
+   
+for (let i = 0; i < myArr.length; i++) {
     var container = document.getElementById('Jasondata');
-    var container2 = document.getElementById('Jasondata2');
-
-   if (I < 5) {
-    var content = `
-    <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
-    <div class="card" >
-      <div class="check">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        </div>
-      </div>
-      <img class="card-img-top" src="${myArr[I].image}" alt="top-image">
-      <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
-          <path
-            d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
-        </svg>
-      </div>
-      <div class="card-body">
-        <h6>${myArr[I].name}</h6>
-        <p>${myArr[I].description}</p>
-      </div>
-
-
-    </div>
-  </div>
-    `;
-
-  
-    // Append newyly created card element to the container
-    container.innerHTML += content;
-   } 
-
-   else {
-
-    var content = `
+    var output="";
     
-    <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
+    var content = `
+    <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xl-" data-aos="flip-left" data-aos-duration="1000">
     <div class="card" >
       <div class="check">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
         </div>
       </div>
-      <img class="card-img-top" src="${myArr[I].image}" alt="top-image">
+      <img class="card-img-top" src="${myArr[i].image}" alt="top-image">
       <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
           <path
@@ -142,8 +132,8 @@ function cancel() {
         </svg>
       </div>
       <div class="card-body">
-        <h6>${myArr[I].name}</h6>
-        <p>${myArr[I].description}</p>
+        <h6>${myArr[i].name}</h6>
+        <p>${myArr[i].description}</p>
       </div>
 
 
@@ -151,67 +141,57 @@ function cancel() {
   </div>
     `;
 
-  
+
     // Append newyly created card element to the container
-    container2.innerHTML += content;
-   }
+   output = content
+}
+    
+  //  } 
+
+  //  else {
+
+  //   var content = `
+    
+  //   <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
+  //   <div class="card" >
+  //     <div class="check">
+  //       <div class="form-check">
+  //         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  //       </div>
+  //     </div>
+  //     <img class="card-img-top" src="${myArr[I].image}" alt="top-image">
+  //     <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
+  //       <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
+  //         <path
+  //           d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
+  //       </svg>
+  //     </div>
+  //     <div class="card-body">
+  //       <h6>${myArr[I].name}</h6>
+  //       <p>${myArr[I].description}</p>
+  //     </div>
+
+
+  //   </div>
+  // </div>
+  //   `;
+
+  
+  //   // Append newyly created card element to the container
+  //   container2.innerHTML += content;
+
+  //  }
      // Construct card content
-    
-
-    
-  }
-   }
-   xmlhttp.open("GET", "data.json", true);
-  xmlhttp.send();
+ 
+}
+    xmlhttp.open("GET", "data.json", true);
+    xmlhttp.send();
  
    
 
 
 
-function preview(value) {
-  console.log(value.files[0]);
-  document.getElementById('imagePreview').src = window.URL.createObjectURL(value.files[0]);
-  // this.files[0]
-  document.getElementById('imagePreview').style.width="70px";
-  document.getElementById('imagePreview').style.height="100px";
-}
-
-var button=document.getElementById("save").addEventListener("click",function name(e) {
-       e.preventDefault();
-       var name = document.getElementById('name').value;
-       var postion = document.getElementById('position').value;
-       var description = document.getElementById('description').value;
-       var container2 = document.getElementById('Jasondata2');
-       var content = `
-    
-    <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12" data-aos="flip-left" data-aos-duration="1000">
-    <div class="card" >
-      <div class="check">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        </div>
-      </div>
-      <img class="card-img-top" src="" alt="top-image">
-      <div class="icon-img" data-toggle="modal" data-target="#exampleModalCenter2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
-          <path
-            d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
-        </svg>
-      </div>
-      <div class="card-body">
-        <h6>${name}</h6>
-        <p>${description}</p>
-      </div>
 
 
-//     </div>
-//   </div>
-//     `;
-    console.log(content);
-    container2+=content
-    });
-  
-  
-    
 
- 
+
