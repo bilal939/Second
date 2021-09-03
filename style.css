@@ -539,24 +539,52 @@ form .button3{
   color: #252584;
   padding: 3px;
 }
-.modal .modal-content .modal-body .wow{
-  margin-top: 20px;
+.modal-body .main{
   display: flex;
   justify-content: center;
-  color: #ff9898;
-  font-weight: bold;
   align-items: center;
 }
-.modal .modal-content .modal-body .wow .delete-icon{
-border-radius: 50%;
-background-color: #ffeeee;
-padding: 10px;
+.modal-body .main .sub-body{
+  padding: 45px;
+  background-color: #dcf0ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.modal .modal-content .modal-body .wow  .para{
- padding-left: 20px;
- margin-top: 15px;
-} 
-
+.modal-body .main .sub-body .child{
+  background-color:#dcf0ff;
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0px;
+  left: 71px;
+}
+.modal-body .next-part{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+.modal-body .next-part .svg-image3{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color:#ffeeee;
+   
+  border: none;
+}
+.modal-body .next-part span{
+  margin-left:20px;
+   
+}
+.modal-body .main .sub-body .child input{
+display: none;
+}
 /*Modal*/
 
 /*Footer*/
