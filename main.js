@@ -55,37 +55,52 @@ var imageprev=document.getElementById("imagePreview")
 
 
 /*Edit Buttoon */
-document.getElementById("EditButton").addEventListener('click',function (params) {
-  document.getElementById('Add-Button').style.display="none";
-  document.getElementById('EditButton').style.display="none";
-  document.getElementById('Delete-Card').style.display="flex";
-  document.getElementById('CancelButton').style.display="inline-block";
-  document.getElementById('defaultCheck1').style.display="inline-block";
-  const container = document.querySelectorAll(".check");
-  console.log(container);
-  for (let i = 0; i < container.length; i++) {
-    container[i].style.display="inline-block"
-  }
+$('#EditButton').click(function name(params) {
+    $("#Add-Button,#EditButton").hide();
+    $(".button3, .check").css("display","inline-block");
+    $("#Delete-Card").css("display","flex");
 });
 /*Edit Buttoon */
 
 
+/*Cancel-Button */
+$("#CancelButton").click(function name(params) {
+  $("#Add-Button,#EditButton").css("display","block");
+  $("#Delete-Card,#CancelButton,.check").hide();
+  $(".form-check-input").prop("checked",false)
+})
+/*Cancel-Button */
 
-/*Cancel-Button */
-document.getElementById("CancelButton").addEventListener('click',function (params) {
-  document.getElementById('Add-Button').style.display="block";
-  document.getElementById('EditButton').style.display="block";
-  document.getElementById('Delete-Card').style.display="none";
-  document.getElementById('CancelButton').style.display="none";
-  const container = document.querySelectorAll(".check");
-  const container2 = document.querySelectorAll(".form-check-input");
+// document.getElementById("EditButton").addEventListener('click',function (params) {
+//   document.getElementById('Add-Button').style.display="none";
+//   document.getElementById('EditButton').style.display="none";
+//   document.getElementById('Delete-Card').style.display="flex";
+//   document.getElementById('CancelButton').style.display="inline-block";
+//   document.getElementById('defaultCheck1').style.display="inline-block";
+//   const container = document.querySelectorAll(".check");
+//   console.log(container);
+//   for (let i = 0; i < container.length; i++) {
+//     container[i].style.display="inline-block"
+//   }
+// });
+
+
+
+
+// document.getElementById("CancelButton").addEventListener('click',function (params) {
+//   document.getElementById('Add-Button').style.display="block";
+//   document.getElementById('EditButton').style.display="block";
+//   document.getElementById('Delete-Card').style.display="none";
+//   document.getElementById('CancelButton').style.display="none";
+//   const container = document.querySelectorAll(".check");
+//   const container2 = document.querySelectorAll(".form-check-input");
  
-  for (let i = 0; i < container.length; i++) {
-    container2[i].checked = false;
-    container[i].style.display="none";
-  }
-});
-/*Cancel-Button */
+//   for (let i = 0; i < container.length; i++) {
+//     container2[i].checked = false;
+//     container[i].style.display="none";
+//   }
+// });
+
 
 
 
@@ -127,7 +142,7 @@ for (let i = 0; i < myArr.length; i++) {
     
     var content = `
     <div class="col-xl-2  col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xl-" data-aos="flip-left" data-aos-duration="1000">
-    <div class="card"  >
+    <div class="card">
       <div class="check">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -145,8 +160,6 @@ for (let i = 0; i < myArr.length; i++) {
         <p>${myArr[i].description}</p>
        
       </div>
-  
-  
     </div>
   </div>
     `;
@@ -228,6 +241,7 @@ function hoverclick(data) {
     editimage.style.height="100px";
     style.style.padding="0px";
     dataID=document.getElementById("dataid").value=data.id;
+    console.log(dataID);
 }
 function showfulldata(params) {
 document.getElementById("ShowdataImage").src=params.image;
@@ -240,21 +254,19 @@ document.getElementById("ShowDescription").textContent=params.description;
 
 
     //updating cards//
-function savedata() {
+function savedata(data2) {
+ data2.value=dataID;
+ console.log(data2.value)
 
- console.log(dataID);
- var newarr=myArr.map(function(value,i){
+ myArr.map(function(myArr,i){
   if (i == dataID) {
-    value.name=editname.value;
-    console.log(value.name)
+    myArr.name=editname.value;
+    console.log(myArr.name)
   } else {
-   
+   console.log("j")
   }
    
  });;
 }
 
   
-document.getElementById("Delete-Card").addEventListener("click",function name(params) {
- 
-});
