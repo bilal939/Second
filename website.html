@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -367,7 +377,7 @@
             <button type="button" data-toggle="modal" data-target="#exampleModalCenter1" id="Add-Button"
               class="button2">Add</button>
             <button type="button" id="CancelButton" class="button3">Cancel</button>
-            <button class="svg-image3" id="Delete-Card">
+            <button class="svg-image3" id="Delete-Card" onclick="deletecard()">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff4747" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M22.0068 3.45395H17.0134V2.6398C17.0134 1.18421 15.8292 0 14.3736 0H9.62686C8.17126 0 6.98705 1.18421 6.98705 2.6398V3.45395H1.99363C1.62357 3.45395 1.32751 3.75 1.32751 4.12007C1.32751 4.49013 1.62357 4.78618 1.99363 4.78618H3.19758V20.4375C3.19758 22.4013 4.79626 24 6.76008 24H17.2403C19.2042 24 20.8028 22.4013 20.8028 20.4375V4.78618H22.0068C22.3769 4.78618 22.6729 4.49013 22.6729 4.12007C22.6729 3.75 22.3769 3.45395 22.0068 3.45395ZM8.31929 2.6398C8.31929 1.91941 8.90646 1.33224 9.62686 1.33224H14.3736C15.094 1.33224 15.6811 1.91941 15.6811 2.6398V3.45395H8.31929V2.6398ZM19.4706 20.4375C19.4706 21.6661 18.469 22.6678 17.2403 22.6678H6.76008C5.53146 22.6678 4.52982 21.6661 4.52982 20.4375V4.78618H19.4755V20.4375H19.4706Z"
@@ -390,150 +400,7 @@
     </div>
   </section>
 
-  <div class="modal" id="exampleModalCenter1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title">Add People</h5>
-          <div class="close-icon" data-dismiss="modal" aria-label="Close">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#252584" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M14.8526 11.9996L23.4095 3.44268C24.1972 2.655 24.1972 1.37794 23.4095 0.590379C22.6218 -0.197294 21.3449 -0.197294 20.5572 0.590379L12.0002 9.14738L3.44321 0.590266C2.65554 -0.197406 1.37859 -0.197406 0.590914 0.590266C-0.196646 1.37794 -0.196646 2.655 0.590914 3.44256L9.14792 11.9995L0.590914 20.5565C-0.196646 21.3441 -0.196646 22.6212 0.590914 23.4088C1.37859 24.1964 2.65554 24.1964 3.44321 23.4088L12.0002 14.8518L20.5572 23.4088C21.3448 24.1964 22.6218 24.1964 23.4095 23.4088C24.1972 22.6211 24.1972 21.3441 23.4095 20.5565L14.8526 11.9996Z"
-                fill="#252584" />
-            </svg>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div class="data">
-            <div class="user-img" id="img">
-              <img id="imagePreview" src="" style="border-radius: 50%;" alt="">
-              <svg id="hi" width="60" height="60" viewBox="0 0 24 24" fill="#92b5ec" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12.0001 11.7376C14.6685 11.7376 16.8318 9.11006 16.8318 5.86882C16.8318 2.62752 16.1216 0 12.0001 0C7.87861 0 7.16821 2.62752 7.16821 5.86882C7.16821 9.11006 9.33157 11.7376 12.0001 11.7376Z"
-                  fill="#92b5ec" />
-                <path d="M2.87385 20.6985C2.87302 20.5009 2.8722 20.6428 2.87385 20.6985V20.6985Z" fill="#92b5ec" />
-                <path d="M21.1259 20.8528C21.1284 20.7987 21.1267 20.4775 21.1259 20.8528V20.8528Z" fill="#92b5ec" />
-                <path
-                  d="M21.1155 20.4614C21.0261 14.8151 20.2886 13.2062 14.6457 12.1877C14.6457 12.1877 13.8514 13.1999 11.9999 13.1999C10.1485 13.1999 9.35403 12.1877 9.35403 12.1877C3.77266 13.1951 2.9904 14.7801 2.88754 20.2779C2.8791 20.7269 2.8752 20.7505 2.87369 20.6984C2.87403 20.796 2.87444 20.9766 2.87444 21.2916C2.87444 21.2916 4.21789 23.9999 11.9999 23.9999C19.7818 23.9999 21.1254 21.2916 21.1254 21.2916C21.1254 21.0892 21.1256 20.9485 21.1258 20.8528C21.1243 20.885 21.1212 20.8225 21.1155 20.4614Z"
-                  fill="#92b5ec" />
-              </svg>
-
-
-              <div class="pen">
-                <input type='file' id="imageUpload" accept="image/*" onchange="preview(this)" />
-                <label for="imageUpload">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
-                    <path
-                      d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
-                  </svg>
-                </label>
-              </div>
-            </div>
-
-          </div>
-          <form action="" method="POST" class="form-add" id="res" autocomplete="off">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="Name" id="name" class="form-control" placeholder="Enter Your name" required>
-            </div>
-            <div class="form-group">
-              <label>Position</label>
-              <input type="Position" id="position" class="form-control" placeholder="Enter Position" required>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Description</label>
-              <textarea class="form-control" id="description" placeholder="Enter Description" required
-                rows="4"></textarea>
-            </div>
-        </div>
-        <div class="modal-footer border-0">
-          <button type="button" class="Modal-button1" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="Modal-button2" id="save">Save</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="exampleModalCenter2">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title">Edit People</h5>
-          <div class="close-icon" data-dismiss="modal" aria-label="Close">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#252584" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M14.8526 11.9996L23.4095 3.44268C24.1972 2.655 24.1972 1.37794 23.4095 0.590379C22.6218 -0.197294 21.3449 -0.197294 20.5572 0.590379L12.0002 9.14738L3.44321 0.590266C2.65554 -0.197406 1.37859 -0.197406 0.590914 0.590266C-0.196646 1.37794 -0.196646 2.655 0.590914 3.44256L9.14792 11.9995L0.590914 20.5565C-0.196646 21.3441 -0.196646 22.6212 0.590914 23.4088C1.37859 24.1964 2.65554 24.1964 3.44321 23.4088L12.0002 14.8518L20.5572 23.4088C21.3448 24.1964 22.6218 24.1964 23.4095 23.4088C24.1972 22.6211 24.1972 21.3441 23.4095 20.5565L14.8526 11.9996Z"
-                fill="#252584" />
-            </svg>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div class="main">
-            <div class="sub-body" id="style">
-              <img id="ShowImage" src="" style="border-radius: 50%;" alt="">
-              <div class="child">
-                <input type='file' id="imageUpload2" accept="image/*" onchange="preview2(this)" />
-                <label for="imageUpload2">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
-                    <path
-                      d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
-                  </svg>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="next-part">
-            <button class="svg-image3" id="delete">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff4747" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M22.0068 3.45395H17.0134V2.6398C17.0134 1.18421 15.8292 0 14.3736 0H9.62686C8.17126 0 6.98705 1.18421 6.98705 2.6398V3.45395H1.99363C1.62357 3.45395 1.32751 3.75 1.32751 4.12007C1.32751 4.49013 1.62357 4.78618 1.99363 4.78618H3.19758V20.4375C3.19758 22.4013 4.79626 24 6.76008 24H17.2403C19.2042 24 20.8028 22.4013 20.8028 20.4375V4.78618H22.0068C22.3769 4.78618 22.6729 4.49013 22.6729 4.12007C22.6729 3.75 22.3769 3.45395 22.0068 3.45395ZM8.31929 2.6398C8.31929 1.91941 8.90646 1.33224 9.62686 1.33224H14.3736C15.094 1.33224 15.6811 1.91941 15.6811 2.6398V3.45395H8.31929V2.6398ZM19.4706 20.4375C19.4706 21.6661 18.469 22.6678 17.2403 22.6678H6.76008C5.53146 22.6678 4.52982 21.6661 4.52982 20.4375V4.78618H19.4755V20.4375H19.4706Z"
-                  fill="#ff4747" />
-                <path
-                  d="M12.0007 20.2796C12.3708 20.2796 12.6668 19.9835 12.6668 19.6135V7.84043C12.6668 7.47037 12.3708 7.17432 12.0007 7.17432C11.6306 7.17432 11.3346 7.47037 11.3346 7.84043V19.6085C11.3346 19.9786 11.6306 20.2796 12.0007 20.2796Z"
-                  fill="#ff4747" />
-                <path
-                  d="M7.65284 19.5443C8.02291 19.5443 8.31896 19.2483 8.31896 18.8782V8.57066C8.31896 8.20059 8.02291 7.90454 7.65284 7.90454C7.28278 7.90454 6.98672 8.20059 6.98672 8.57066V18.8782C6.98672 19.2483 7.28771 19.5443 7.65284 19.5443Z"
-                  fill="#ff4747" />
-                <path
-                  d="M16.3475 19.5443C16.7175 19.5443 17.0136 19.2483 17.0136 18.8782V8.57066C17.0136 8.20059 16.7175 7.90454 16.3475 7.90454C15.9774 7.90454 15.6814 8.20059 15.6814 8.57066V18.8782C15.6814 19.2483 15.9774 19.5443 16.3475 19.5443Z"
-                  fill="#ff4747" />
-              </svg>
-            </button>
-            <span>Delete This Picture</span>
-          </div>
-
-          <form action="" autocomplete="off" onsubmit="event.preventDefault()" class="form-add">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="Name" id="Editname" class="form-control" placeholder="Enter Your name" required>
-            </div>
-            <div class="form-group">
-              <label>Position</label>
-              <input type="Position" id="Editposition" class="form-control" placeholder="Enter Position" required>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Description</label>
-              <textarea class="form-control" id="Editdescription" placeholder="Enter Description" required
-                rows="4"></textarea>
-            </div>
-            <input type="Name" id="dataid" class="form-control d-none">
-        </div>
-        <div class="modal-footer border-0">
-          <div class="row">
-            <div class="col-6">
-              <button type="button" class="Modal-button1" data-dismiss="modal">Cancel</button>
-            </div>
-            <div class="col-6">
-              <button type="submit" class="Modal-button2" onclick="savedata(dataid)" id="save1">Save</button>
-
-            </div>
-          </div>
-
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  
   <section class="cards">
     <div class="my-container">
       <div class="row justify-content-center mt-5" id="Jasondata">
@@ -544,56 +411,7 @@
 
   </section>
 
-  <div class="modal" id="exampleModalCenter3">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="width: 100%; height: 100%; border-radius: 0px;">
-        <div class="modal-body p-0">
-
-          <div class="row ">
-            <div class="col-4">
-              <div>
-                <img src="" width="100%" id="ShowdataImage" alt="">
-              </div>
-            </div>
-            <div class="col-8">
-              <div class="row pt-3">
-                <div class="col-8">
-                  <div class="font" id="Showname"></div>
-                </div>
-                <div class="col-4">
-                  <div class="close-icon" style="float: right; padding-right: 12px;" data-dismiss="modal"
-                    aria-label="Close">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#252584" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M14.8526 11.9996L23.4095 3.44268C24.1972 2.655 24.1972 1.37794 23.4095 0.590379C22.6218 -0.197294 21.3449 -0.197294 20.5572 0.590379L12.0002 9.14738L3.44321 0.590266C2.65554 -0.197406 1.37859 -0.197406 0.590914 0.590266C-0.196646 1.37794 -0.196646 2.655 0.590914 3.44256L9.14792 11.9995L0.590914 20.5565C-0.196646 21.3441 -0.196646 22.6212 0.590914 23.4088C1.37859 24.1964 2.65554 24.1964 3.44321 23.4088L12.0002 14.8518L20.5572 23.4088C21.3448 24.1964 22.6218 24.1964 23.4095 23.4088C24.1972 22.6211 24.1972 21.3441 23.4095 20.5565L14.8526 11.9996Z"
-                        fill="#252584" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="pt-2">
-                    <div class="font" id="ShowPosition"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="pt-2">
-                    <div class="font" id="ShowDescription"></div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
 
 
@@ -732,8 +550,200 @@
     </div>
   </section>
 
+  <div class="modal" id="exampleModalCenter1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Add People</h5>
+          <div class="close-icon" data-dismiss="modal" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#252584" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.8526 11.9996L23.4095 3.44268C24.1972 2.655 24.1972 1.37794 23.4095 0.590379C22.6218 -0.197294 21.3449 -0.197294 20.5572 0.590379L12.0002 9.14738L3.44321 0.590266C2.65554 -0.197406 1.37859 -0.197406 0.590914 0.590266C-0.196646 1.37794 -0.196646 2.655 0.590914 3.44256L9.14792 11.9995L0.590914 20.5565C-0.196646 21.3441 -0.196646 22.6212 0.590914 23.4088C1.37859 24.1964 2.65554 24.1964 3.44321 23.4088L12.0002 14.8518L20.5572 23.4088C21.3448 24.1964 22.6218 24.1964 23.4095 23.4088C24.1972 22.6211 24.1972 21.3441 23.4095 20.5565L14.8526 11.9996Z"
+                fill="#252584" />
+            </svg>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="data">
+            <div class="user-img" id="img">
+              <img id="imagePreview" src="" style="border-radius: 50%;" alt="">
+              <svg id="hi" width="60" height="60" viewBox="0 0 24 24" fill="#92b5ec" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0001 11.7376C14.6685 11.7376 16.8318 9.11006 16.8318 5.86882C16.8318 2.62752 16.1216 0 12.0001 0C7.87861 0 7.16821 2.62752 7.16821 5.86882C7.16821 9.11006 9.33157 11.7376 12.0001 11.7376Z"
+                  fill="#92b5ec" />
+                <path d="M2.87385 20.6985C2.87302 20.5009 2.8722 20.6428 2.87385 20.6985V20.6985Z" fill="#92b5ec" />
+                <path d="M21.1259 20.8528C21.1284 20.7987 21.1267 20.4775 21.1259 20.8528V20.8528Z" fill="#92b5ec" />
+                <path
+                  d="M21.1155 20.4614C21.0261 14.8151 20.2886 13.2062 14.6457 12.1877C14.6457 12.1877 13.8514 13.1999 11.9999 13.1999C10.1485 13.1999 9.35403 12.1877 9.35403 12.1877C3.77266 13.1951 2.9904 14.7801 2.88754 20.2779C2.8791 20.7269 2.8752 20.7505 2.87369 20.6984C2.87403 20.796 2.87444 20.9766 2.87444 21.2916C2.87444 21.2916 4.21789 23.9999 11.9999 23.9999C19.7818 23.9999 21.1254 21.2916 21.1254 21.2916C21.1254 21.0892 21.1256 20.9485 21.1258 20.8528C21.1243 20.885 21.1212 20.8225 21.1155 20.4614Z"
+                  fill="#92b5ec" />
+              </svg>
 
 
+              <div class="pen">
+                <input type='file' id="imageUpload" accept="image/*" onchange="preview(this)" />
+                <label for="imageUpload">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
+                    <path
+                      d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
+                  </svg>
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <form action="" method="POST" class="form-add" id="res" autocomplete="off">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="Name" id="name" class="form-control" placeholder="Enter Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Position</label>
+              <input type="Position" id="position" class="form-control" placeholder="Enter Position" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Description</label>
+              <textarea class="form-control" id="description" placeholder="Enter Description" required
+                rows="4"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="Modal-button1" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="Modal-button2" id="save">Save</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="exampleModalCenter2">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Edit People</h5>
+          <div class="close-icon" data-dismiss="modal" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#252584" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.8526 11.9996L23.4095 3.44268C24.1972 2.655 24.1972 1.37794 23.4095 0.590379C22.6218 -0.197294 21.3449 -0.197294 20.5572 0.590379L12.0002 9.14738L3.44321 0.590266C2.65554 -0.197406 1.37859 -0.197406 0.590914 0.590266C-0.196646 1.37794 -0.196646 2.655 0.590914 3.44256L9.14792 11.9995L0.590914 20.5565C-0.196646 21.3441 -0.196646 22.6212 0.590914 23.4088C1.37859 24.1964 2.65554 24.1964 3.44321 23.4088L12.0002 14.8518L20.5572 23.4088C21.3448 24.1964 22.6218 24.1964 23.4095 23.4088C24.1972 22.6211 24.1972 21.3441 23.4095 20.5565L14.8526 11.9996Z"
+                fill="#252584" />
+            </svg>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="main">
+            <div class="sub-body" id="style">
+              <img id="ShowImage" src="" style="border-radius: 50%;" alt="">
+              <div class="child">
+                <input type='file' id="imageUpload2" accept="image/*" onchange="preview2(this)" />
+                <label for="imageUpload2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2b61b4" xmlns="http:www.w3.org/2000/svg">
+                    <path
+                      d="M14.9239 4.04412L19.8061 8.92622L7.44801 21.2843L2.56863 16.4022L14.9239 4.04412ZM23.5107 2.86667L21.3334 0.689423C20.492 -0.152008 19.1257 -0.152008 18.2814 0.689423L16.1958 2.77501L21.0779 7.65715L23.5107 5.22443C24.1633 4.57177 24.1633 3.51929 23.5107 2.86667ZM0.0137079 23.2644C-0.0751408 23.6642 0.285881 24.0225 0.685791 23.9253L6.12612 22.6062L1.24674 17.7241L0.0137079 23.2644Z" />
+                  </svg>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="next-part">
+            <button class="svg-image3" id="delete">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff4747" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.0068 3.45395H17.0134V2.6398C17.0134 1.18421 15.8292 0 14.3736 0H9.62686C8.17126 0 6.98705 1.18421 6.98705 2.6398V3.45395H1.99363C1.62357 3.45395 1.32751 3.75 1.32751 4.12007C1.32751 4.49013 1.62357 4.78618 1.99363 4.78618H3.19758V20.4375C3.19758 22.4013 4.79626 24 6.76008 24H17.2403C19.2042 24 20.8028 22.4013 20.8028 20.4375V4.78618H22.0068C22.3769 4.78618 22.6729 4.49013 22.6729 4.12007C22.6729 3.75 22.3769 3.45395 22.0068 3.45395ZM8.31929 2.6398C8.31929 1.91941 8.90646 1.33224 9.62686 1.33224H14.3736C15.094 1.33224 15.6811 1.91941 15.6811 2.6398V3.45395H8.31929V2.6398ZM19.4706 20.4375C19.4706 21.6661 18.469 22.6678 17.2403 22.6678H6.76008C5.53146 22.6678 4.52982 21.6661 4.52982 20.4375V4.78618H19.4755V20.4375H19.4706Z"
+                  fill="#ff4747" />
+                <path
+                  d="M12.0007 20.2796C12.3708 20.2796 12.6668 19.9835 12.6668 19.6135V7.84043C12.6668 7.47037 12.3708 7.17432 12.0007 7.17432C11.6306 7.17432 11.3346 7.47037 11.3346 7.84043V19.6085C11.3346 19.9786 11.6306 20.2796 12.0007 20.2796Z"
+                  fill="#ff4747" />
+                <path
+                  d="M7.65284 19.5443C8.02291 19.5443 8.31896 19.2483 8.31896 18.8782V8.57066C8.31896 8.20059 8.02291 7.90454 7.65284 7.90454C7.28278 7.90454 6.98672 8.20059 6.98672 8.57066V18.8782C6.98672 19.2483 7.28771 19.5443 7.65284 19.5443Z"
+                  fill="#ff4747" />
+                <path
+                  d="M16.3475 19.5443C16.7175 19.5443 17.0136 19.2483 17.0136 18.8782V8.57066C17.0136 8.20059 16.7175 7.90454 16.3475 7.90454C15.9774 7.90454 15.6814 8.20059 15.6814 8.57066V18.8782C15.6814 19.2483 15.9774 19.5443 16.3475 19.5443Z"
+                  fill="#ff4747" />
+              </svg>
+            </button>
+            <span>Delete This Picture</span>
+          </div>
+
+          <form action="" autocomplete="off" onsubmit="event.preventDefault()" class="form-add">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="Name" id="Editname" class="form-control" placeholder="Enter Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Position</label>
+              <input type="Position" id="Editposition" class="form-control" placeholder="Enter Position" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Description</label>
+              <textarea class="form-control" id="Editdescription" placeholder="Enter Description" required
+                rows="4"></textarea>
+            </div>
+            <input type="text" id="dataid" class="form-control d-none">
+        </div>
+        <div class="modal-footer border-0">
+          <div class="row">
+            <div class="col-6">
+              <button type="button" class="Modal-button1" data-dismiss="modal">Cancel</button>
+            </div>
+            <div class="col-6">
+              <button type="submit" class="Modal-button2" onclick="savedata(dataid)" id="save1">Save</button>
+
+            </div>
+          </div>
+
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="exampleModalCenter3">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="width: 100%; height: 100%; border-radius: 0px;">
+        <div class="modal-body p-0">
+
+          <div class="row ">
+            <div class="col-4">
+              <div>
+                <img src="" width="100%" id="ShowdataImage" alt="">
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="row pt-3">
+                <div class="col-8">
+                  <div class="font" id="Showname"></div>
+                </div>
+                <div class="col-4">
+                  <div class="close-icon" style="float: right; padding-right: 12px;" data-dismiss="modal"
+                    aria-label="Close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#252584" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14.8526 11.9996L23.4095 3.44268C24.1972 2.655 24.1972 1.37794 23.4095 0.590379C22.6218 -0.197294 21.3449 -0.197294 20.5572 0.590379L12.0002 9.14738L3.44321 0.590266C2.65554 -0.197406 1.37859 -0.197406 0.590914 0.590266C-0.196646 1.37794 -0.196646 2.655 0.590914 3.44256L9.14792 11.9995L0.590914 20.5565C-0.196646 21.3441 -0.196646 22.6212 0.590914 23.4088C1.37859 24.1964 2.65554 24.1964 3.44321 23.4088L12.0002 14.8518L20.5572 23.4088C21.3448 24.1964 22.6218 24.1964 23.4095 23.4088C24.1972 22.6211 24.1972 21.3441 23.4095 20.5565L14.8526 11.9996Z"
+                        fill="#252584" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="pt-2">
+                    <div class="font" id="ShowPosition"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="pt-2">
+                    <div class="font" id="ShowDescription"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="data.json"></script>
 
